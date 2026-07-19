@@ -28,6 +28,6 @@ jobs:
       - name: Build support image ${{ matrix.images }}
         uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
         with:
-          context: test_setup/conf/${{ matrix.images }}
+          context: ${{ matrix.images }}
           push: true
           tags: ghcr.io/jsandas/${{ matrix.images }}
