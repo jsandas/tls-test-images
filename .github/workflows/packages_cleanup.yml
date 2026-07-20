@@ -16,6 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         images: [nginx_good, nginx_bad, postfix_bad, mariadb_good, debian-weakkeys]
+      max-parallel: 1
 
     steps:
       - uses: actions/delete-package-versions@e5bc658cc4c965c472efe991f8beea3981499c55 # v5.0.0
