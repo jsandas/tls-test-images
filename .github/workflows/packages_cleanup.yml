@@ -19,11 +19,12 @@ jobs:
       max-parallel: 1
 
     steps:
-      - uses: actions/delete-package-versions@e5bc658cc4c965c472efe991f8beea3981499c55 # v5.0.0
+      - name: Delete all untagged versions
+        uses: snok/container-retention-policy@d3bdcf5ce9b05f685154e4a16c39233b245e3d53 # v3.1.0
         with:
-          owner: jsandas
-          package-name: ${{ matrix.images }}
-          package-type: container
-          num-old-versions-to-delete: 1
-          delete-only-untagged-versions: true
+          account: user
           token: ${{ secrets.GITHUB_TOKEN }}
+          image-names: ${{ matrix.images }}
+          cut-off: "1h"
+          tag-selection: untagged
+          keep-n-most-recent: 0
