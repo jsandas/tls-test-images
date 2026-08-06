@@ -1,4 +1,4 @@
-FROM mariadb:10.6
+FROM mariadb:12.3
 
 COPY config.cnf /etc/mysql/conf.d/
 

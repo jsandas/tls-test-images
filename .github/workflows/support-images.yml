@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        images: [nginx_good, nginx_bad, postfix_bad, mariadb_good, debian-weakkeys]
+        images: [nginx-1.30.0_openssl-3.5.7, nginx-1.2.9_openssl-1.0.1f, postfix-2.11.0_openssl-1.0.1f, mariadb-12.3, debian-weakkeys]
 
     name: Build TLS Test Images
     steps:
