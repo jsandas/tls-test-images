@@ -15,6 +15,12 @@ RUN openssl req -x509 -newkey ec:<(openssl ecparam -name secp384r1) \
     -keyout /etc/nginx/conf.d/cert-ecc.key \
     -out /etc/nginx/conf.d/cert-ecc.pem
 
+RUN openssl req -x509 -newkey mldsa44 \
+    -days 365 -nodes \
+    -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com" \
+    -keyout /etc/nginx/conf.d/cert-mldsa.key \
+    -out /etc/nginx/conf.d/cert-mldsa.pem
+
 COPY default.conf /etc/nginx/conf.d/default.conf
 
 # CMD ["/etc/nginx/sbin.d/nginx", "-g", "daemon off;"]
